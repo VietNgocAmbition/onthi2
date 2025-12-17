@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ôn Thi Tự Luận CNPM</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #334155;
+        --heading: #1e293b;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary);
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .question-card {
+        background: var(--card);
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border-left: 5px solid var(--primary);
+      }
+
+      .question-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--heading);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+
+      .answer-content {
+        font-size: 1rem;
+      }
+
+      .step-title {
+        font-weight: bold;
+        color: var(--primary);
+        margin-top: 15px;
+        display: block;
+      }
+
+      ul {
+        margin: 5px 0 15px 20px;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .note {
+        font-style: italic;
+        font-size: 0.9em;
+        color: #64748b;
+        text-align: center;
+        margin-top: 30px;
+      }
+      .question-title2 {
+        /* Đổi về font chữ thường cho dễ đọc, không bị giống code */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+        /* Quan trọng: Giúp text tự xuống dòng trên điện thoại, không bị trôi ngang */
+        white-space: pre-wrap;
+
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #1e293b; /* Màu chữ đậm */
+
+        background-color: #e0f2fe; /* Nền xanh nhạt cho nổi bật đề bài */
+        padding: 15px;
+        margin-bottom: 20px;
+
+        border-radius: 8px; /* Bo tròn góc */
+        border-left: 5px solid #2563eb; /* Viền xanh đậm bên trái làm điểm nhấn */
+
+        line-height: 1.6; /* Giãn dòng cho thoáng */
+        overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ôn Tập Tự Luận CNPM</h1>
+
+    <div class="question-card">
+      <pre class="question-title2">
+        Câu 1: Chọn một đề tài phần mềm (quản lý thư viện, lớp học, ký túc xá,
+        cửa hàng...). 
+        Trình bày 5 bước chính trong quy trình phát triển phần
+        mềm, bao gồm: 
+        - Mục tiêu của từng bước. 
+        - Các hoạt động chính.
+        - Công cụ hoặc kỹ thuật có thể sử dụng.
+      </pre>
+      <div class="answer-content">
+        <p><strong>Đề tài:</strong> Phần mềm Quản lý Thư viện</p>
+
+        <span class="step-title">1. Khảo sát hệ thống</span>
+        <ul>
+          <li>
+            <strong>Mục tiêu:</strong> Hiểu quy trình mượn/trả hiện tại và khó
+            khăn gặp phải (mất sách, tìm lâu).
+          </li>
+          <li>
+            <strong>Hoạt động:</strong> Phỏng vấn thủ thư, quan sát thực tế.
+          </li>
+          <li><strong>Công cụ:</strong> Phiếu khảo sát.</li>
+        </ul>
+
+        <span class="step-title">2. Phân tích yêu cầu</span>
+        <ul>
+          <li>
+            <strong>Mục tiêu:</strong> Xác định chức năng cần có (Mượn, Trả,
+            Quản lý sách, Độc giả).
+          </li>
+          <li>
+            <strong>Hoạt động:</strong> Vẽ sơ đồ Use Case, chốt yêu cầu với
+            khách hàng.
+          </li>
+          <li><strong>Công cụ:</strong> Sơ đồ Use Case, Tài liệu SRS.</li>
+        </ul>
+
+        <span class="step-title">3. Thiết kế</span>
+        <ul>
+          <li>
+            <strong>Mục tiêu:</strong> Xây dựng kiến trúc hệ thống, CSDL và giao
+            diện.
+          </li>
+          <li>
+            <strong>Hoạt động:</strong> Thiết kế bảng dữ liệu (Sách, Phiếu mượn)
+            và vẽ màn hình giao diện.
+          </li>
+          <li>
+            <strong>Công cụ:</strong> Draw.io (vẽ sơ đồ), Figma (giao diện).
+          </li>
+        </ul>
+
+        <span class="step-title">4. Code (Thực hiện)</span>
+        <ul>
+          <li>
+            <strong>Mục tiêu:</strong> Viết mã nguồn để phần mềm chạy được.
+          </li>
+          <li>
+            <strong>Hoạt động:</strong> Viết code xử lý logic (tính tiền phạt)
+            và kết nối CSDL.
+          </li>
+          <li><strong>Công cụ:</strong> VS Code, SQL Server.</li>
+        </ul>
+
+        <span class="step-title">5. Kiểm thử</span>
+        <ul>
+          <li>
+            <strong>Mục tiêu:</strong> Tìm lỗi (bug) để đảm bảo phần mềm đúng
+            yêu cầu.
+          </li>
+          <li>
+            <strong>Hoạt động:</strong> Chạy thử các trường hợp (nhập sai, mượn
+            quá hạn) để tìm lỗi.
+          </li>
+          <li><strong>Công cụ:</strong> Excel (viết Test case).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-title">
+        Câu 2: Quy trình (Scrum, Waterfall, Thác Nước...) có mấy giai đoạn, vai
+        trò và ý nghĩa của từng giai đoạn. Công cụ nào hỗ trợ làm nhóm, mô tả, ý
+        nghĩa.
+      </div>
+      <div class="answer-content">
+        <h3 style="color: #2563eb; margin-bottom: 10px">A. Quy trình Scrum</h3>
+        <p>
+          Scrum là quy trình linh hoạt (Agile), chia dự án thành các chu kỳ ngắn
+          gọi là <strong>Sprint</strong>.
+        </p>
+
+        <p><strong>1. Các vai trò (Roles):</strong></p>
+        <ul>
+          <li>
+            <strong>Product Owner:</strong> Quản lý yêu cầu và giá trị sản phẩm.
+          </li>
+          <li>
+            <strong>Scrum Master:</strong> Quản lý quy trình, loại bỏ trở ngại.
+          </li>
+          <li>
+            <strong>Dev Team:</strong> Nhóm phát triển (Code, Test, Design).
+          </li>
+        </ul>
+
+        <p><strong>2. Các giai đoạn (Sự kiện) trong Sprint:</strong></p>
+        <ul>
+          <li>
+            <strong>Sprint Planning:</strong> Lập kế hoạch, chọn việc làm trong
+            Sprint.
+          </li>
+          <li>
+            <strong>Daily Scrum:</strong> Họp nhanh 15p mỗi ngày để báo cáo tiến
+            độ.
+          </li>
+          <li>
+            <strong>Sprint Review:</strong> Demo sản phẩm cuối kỳ cho khách hàng
+            xem.
+          </li>
+          <li>
+            <strong>Sprint Retrospective:</strong> Nhóm họp rút kinh nghiệm để
+            cải tiến.
+          </li>
+        </ul>
+
+        <h3 style="color: #2563eb; margin-bottom: 10px; margin-top: 20px">
+          B. Công cụ hỗ trợ nhóm
+        </h3>
+
+        <p><strong>1. Trello / Jira (Quản lý công việc)</strong></p>
+        <ul>
+          <li><strong>Mô tả:</strong> Bảng quản lý dạng thẻ (Kanban).</li>
+          <li>
+            <strong>Ý nghĩa:</strong> Giúp biết ai làm gì, tiến độ đến đâu,
+            tránh sót việc.
+          </li>
+        </ul>
+
+        <p><strong>2. Git / GitHub (Quản lý mã nguồn)</strong></p>
+        <ul>
+          <li>
+            <strong>Mô tả:</strong> Hệ thống lưu trữ và quản lý phiên bản code.
+          </li>
+          <li>
+            <strong>Ý nghĩa:</strong> Giúp nhiều người code chung không bị đè
+            file, lưu lại lịch sử sửa đổi.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">Chúc bạn thi tốt!</div>
+  </body>
+</html>

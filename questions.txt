@@ -1,0 +1,209 @@
+1.
+Trong Scrum, ai loại bỏ trở ngại cho nhóm?
+A. Product Owner
+*B. Scrum Master
+C. Developer
+D. Stakeholder
+
+2.
+Công cụ lập biểu đồ Gantt:
+A. Git
+*B. Microsoft Project
+C. Jira
+D. Visual Studio
+
+3.
+Trong Scrum, ai chịu trách nhiệm về giá trị sản phẩm?
+A. Scrum Master
+*B. Product Owner
+C. Developer
+D. Khách hàng
+
+4.
+Đường găng (Critical Path) là:
+A. Tất cả công việc
+*B. Chuỗi công việc quyết định thời gian dự án
+C. Công việc ít quan trọng
+D. Công việc cần ít tài nguyên
+
+5.
+Lợi ích của công cụ quản lý dự án:
+A. Tốn thời gian
+*B. Tăng hiệu quả, theo dõi tiến độ
+C. Tăng chi phí
+D. Giảm minh bạch
+
+6.
+Sprint là:
+A. Công việc lớn
+*B. Chu kỳ phát triển ngắn
+C. Vai trò
+D. Biểu đồ
+
+7.
+Kiểm thử tích hợp nhằm:
+A. Kiểm tra module riêng lẻ
+*B. Kiểm tra tương tác giữa module
+C. Kiểm tra hiệu năng
+D. Kiểm tra giao diện
+
+8.
+WBS là:
+A. Biểu đồ tiến độ
+B. Công cụ kiểm thử
+*C. Cấu trúc phân rã công việc
+D. Báo cáo chi phí
+
+9.
+Người điều phối Technical Review:
+A. Khách hàng
+B. Hành chính
+C. Thiết kế UI
+*D. Trưởng nhóm kỹ thuật
+
+10.
+SCM là:
+A. Quản lý bảo mật
+B. Theo dõi người dùng
+C. Quản lý tiến độ
+*D. Kiểm soát thay đổi phần mềm
+
+11.
+Vai trò của SCM:
+A. Trang trí giao diện
+B. Tăng tốc xử lý
+C. Giảm thời gian viết mã
+*D. Giữ phần mềm ổn định
+
+12.
+Khác biệt giữa Waterfall và Agile:
+A. Waterfall không viết tài liệu
+B. Agile không gặp khách hàng
+C. Waterfall dùng cho mọi dự án
+*D. Agile linh hoạt và dễ thay đổi
+
+13.
+Vì sao SCM quan trọng trong dự án lớn?
+A. Tự sửa lỗi
+B. Giảm chi phí
+C. Tăng tốc
+*D. Theo dõi thay đổi, giữ ổn định
+
+14.
+Sửa lỗi mang lại lợi ích:
+A. Tăng thời gian
+B. Giảm chức năng
+C. Tăng chi phí
+*D. Tăng ổn định và chất lượng
+
+15.
+Refactoring nhằm:
+A. Thay đổi chức năng
+B. Xóa mã
+C. Thêm module
+*D. Làm sạch mã, không đổi chức năng
+
+16.
+Mục đích kiểm thử phần mềm:
+A. Tối ưu UI
+B. Loại bỏ mọi lỗi bảo mật
+C. Giảm kích thước mã
+*D. Đánh giá chức năng và phát hiện lỗi
+
+17.
+DevOps kết nối:
+A. Kiểm thử – thiết kế
+B. Phân tích – tài liệu
+C. Lập kế hoạch – marketing
+*D. Phát triển – vận hành
+
+18.
+Lợi ích kiểm thử sớm:
+A. Giảm lập trình viên
+B. Giảm tài liệu
+C. Bỏ yêu cầu
+*D. Phát hiện lỗi sớm
+
+19.
+Công cụ quản lý nhiệm vụ phổ biến:
+A. VLC
+B. Messenger
+C. Paint
+*D. Trello, Asana, MS To Do
+
+20.
+Khi xảy ra xung đột, cách xử lý tốt nhất:
+A. Tránh né
+B. Áp đặt
+C. Bỏ qua
+*D. Lắng nghe và tìm giải pháp
+
+21.
+Đặc điểm cốt lõi của Agile:
+A. Quy trình tuần tự
+B. Không gặp khách hàng
+C. Hạn chế thay đổi
+*D. Linh hoạt, lặp lại, thích ứng
+
+22.
+Ưu điểm của Prototype:
+A. Hoàn chỉnh ngay
+B. Không cần phản hồi
+C. Không thay đổi được
+*D. Dễ điều chỉnh theo phản hồi người dùng
+
+23.
+Spiral phù hợp với:
+A. Dự án đơn giản
+B. Không đánh giá rủi ro
+C. Ngắn hạn
+*D. Dự án lớn, phức tạp
+
+24.
+Trong Scrum, Product Backlog là gì?
+A. Danh sách lỗi cần sửa
+*B. Danh sách yêu cầu và tính năng cần phát triển
+C. Báo cáo tiến độ
+D. Kế hoạch kiểm thử
+
+25.
+Test case trong kiểm thử phần mềm là:
+A. Đoạn mã kiểm thử
+*B. Tập hợp đầu vào, hành động, kết quả mong đợi
+C. Một công cụ
+D. Một mô hình phát triển
+
+26.
+Milestone trong quản lý dự án là:
+A. Một tài liệu
+B. Một công cụ
+*C. Điểm quan trọng đánh dấu hoàn thành giai đoạn
+D. Một lỗi
+
+27.
+Daily Scrum thường kéo dài:
+A. 1 giờ
+B. 45 phút
+*C. 15 phút
+D. Không giới hạn
+
+28.
+Burn-down chart dùng để:
+A. Mô tả vai trò
+*B. Theo dõi lượng công việc còn lại
+C. Quản lý chi phí
+D. Mô tả yêu cầu
+
+29.
+Trong quản lý rủi ro, bước đầu tiên là:
+*A. Nhận diện rủi ro
+B. Giảm nhẹ
+C. Phân tích ảnh hưởng
+D. Theo dõi
+
+30.
+Công cụ hỗ trợ cộng tác nhóm trực tuyến gồm:
+A. Photoshop
+B. Excel
+*C. Trello
+D. Word

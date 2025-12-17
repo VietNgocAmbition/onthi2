@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Câu Trả Lời Ngắn (Tự Luận)</title>
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --bg-color: #f3f4f6;
+        --card-bg: #ffffff;
+        --text-color: #1f2937;
+        --answer-bg: #ecfdf5;
+        --answer-text: #065f46;
+      }
+
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      /* Header cố định */
+      .sticky-header {
+        position: sticky;
+        top: 0;
+        background: #fff;
+        padding: 15px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .back-btn {
+        text-decoration: none;
+        background: #e5e7eb;
+        color: #333;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .toggle-all-btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 15px;
+        padding-bottom: 60px;
+      }
+
+      /* Card câu hỏi */
+      .card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        cursor: pointer; /* Bấm vào card cũng hiện đáp án */
+        transition: transform 0.1s;
+      }
+
+      .card:active {
+        transform: scale(0.99);
+      }
+
+      .question-row {
+        display: flex;
+        gap: 12px;
+        font-weight: 600;
+        font-size: 1.1em;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .q-id {
+        background: #374151;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        height: fit-content;
+        font-size: 0.85em;
+        flex-shrink: 0;
+      }
+
+      /* Phần đáp án */
+      .answer-container {
+        display: none; /* Mặc định ẩn */
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed #cbd5e1;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .answer-container.show {
+        display: block;
+      }
+
+      .answer-content {
+        background-color: var(--answer-bg);
+        color: var(--answer-text);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #10b981;
+        font-size: 1.05em;
+      }
+
+      .hint-text {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 5px;
+        font-style: italic;
+      }
+
+      /* Search bar */
+      #searchInput {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sticky-header">
+      <div class="header-left">
+        <a href="index.html" class="back-btn">⬅ Menu</a>
+        <h3 style="margin: 0; color: var(--primary-color)">CÂU HỎI NGẮN</h3>
+      </div>
+      <button class="toggle-all-btn" onclick="toggleAll()">
+        👁️ Hiện tất cả đáp án
+      </button>
+    </div>
+
+    <div class="container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Tìm kiếm nội dung..."
+        onkeyup="filterQuestions()"
+      />
+      <div
+        style="margin-bottom: 10px; font-size: 14px; color: #666"
+        id="count-display"
+      ></div>
+      <div id="quiz-container"></div>
+    </div>
+
+    <script>
+      // DỮ LIỆU CỦA BẠN (Đã xử lý sạch sẽ)
+      const rawData = `
+31. Ý nghĩa của việc phân tích Product Backlog trong Scrum là gì?
+* Làm rõ yêu cầu, ước lượng độ phức tạp và sắp xếp thứ tự ưu tiên.
+
+32. Nêu hai kỹ thuật thu thập yêu cầu từ người dùng.
+* Phỏng vấn (Interview) và Khảo sát (Survey).
+
+33. Khi Deployment, cần chuẩn bị những gì để hạn chế rủi ro?
+* Sao lưu dữ liệu (Backup), Kế hoạch khôi phục (Rollback), Thông báo bảo trì.
+
+34. Nêu hai thách thức phổ biến trong giai đoạn bảo trì phần mềm.
+* Thiếu tài liệu của mã nguồn cũ và Rủi ro sinh ra lỗi mới (Regression).
+
+35. Mục tiêu quan trọng nhất của kiểm thử phần mềm là gì?
+* Tìm ra lỗi (bugs) để đảm bảo phần mềm đáp ứng yêu cầu.
+
+36. Lập trình viên cần phối hợp với những vai trò nào trong nhóm?
+* Product Owner (nghiệp vụ), Tester (lỗi), Designer (giao diện).
+
+37. Sơ đồ Use Case có vai trò gì trong bước phân tích?
+* Mô tả tương tác giữa người dùng và hệ thống, xác định phạm vi chức năng.
+
+38. Mục tiêu của khảo sát ban đầu trong dự án phần mềm là gì?
+* Xác định tính khả thi, hiểu sơ bộ nhu cầu và phạm vi dự án.
+
+39. Kiến trúc phần mềm được xác định ở giai đoạn nào và vì sao quan trọng?
+* Giai đoạn Thiết kế (Design). Quan trọng vì quyết định hiệu năng, bảo mật và khả năng mở rộng.
+
+40. So sánh mục tiêu giữa kiểm thử hệ thống và kiểm thử đơn vị.
+* Unit Test: Kiểm tra từng hàm/module nhỏ. System Test: Kiểm tra toàn bộ hệ thống tích hợp.
+
+41. Nêu hai kỹ thuật phân tích yêu cầu mà BA thường sử dụng.
+* Vẽ sơ đồ quy trình (Process Modeling) và Viết User Stories.
+
+42. Vì sao Use Case hỗ trợ việc hiểu hệ thống tốt hơn?
+* Vì dùng ngôn ngữ tự nhiên, mô tả từ góc độ người dùng (không phải kỹ thuật).
+
+43. Lợi ích của mô hình hóa hệ thống bằng sơ đồ lớp.
+* Hiểu rõ cấu trúc dữ liệu, thuộc tính và mối quan hệ giữa các đối tượng.
+
+44. Bốn thuộc tính chất lượng quan trọng của phần mềm là gì?
+* Tin cậy (Reliability), Khả dụng (Usability), Hiệu quả (Efficiency), Bảo trì (Maintainability).
+
+45. Vì sao kiểm thử đơn vị nên thực hiện song song với lập trình?
+* Để phát hiện lỗi logic ngay lập tức, giảm chi phí sửa lỗi tối đa.
+
+46. Mục đích kiểm thử hệ thống là gì?
+* Đảm bảo hệ thống hoạt động thống nhất, đúng yêu cầu trong môi trường giống thực tế.
+
+47. Yếu tố cần chuẩn bị khi triển khai phần mềm vào môi trường thật.
+* Phần cứng (Server), Hệ điều hành/Thư viện, Cấu hình mạng, Dữ liệu thực.
+
+48. Hai khó khăn khi bảo trì phần mềm.
+* Đọc hiểu code người khác viết và áp lực thời gian gấp.
+
+49. Lợi ích của việc áp dụng công cụ quản lý dự án.
+* Minh bạch tiến độ, phân chia việc rõ ràng, hỗ trợ báo cáo.
+
+50. Tại sao Scrum khuyến khích chia nhỏ công việc trong Sprint?
+* Để dễ ước lượng, dễ quản lý rủi ro và tạo động lực hoàn thành liên tục.
+`;
+
+      function parseData(text) {
+        const lines = text.trim().split("\n");
+        const questions = [];
+        let currentQ = null;
+
+        lines.forEach((line) => {
+          line = line.trim();
+          if (!line) return;
+          const questionMatch = line.match(/^(\d+)[.\s]\s*(.+)/);
+          const answerMatch = line.startsWith("*");
+
+          if (questionMatch) {
+            if (currentQ) questions.push(currentQ);
+            currentQ = {
+              id: questionMatch[1],
+              text: questionMatch[2],
+              answer: "",
+            };
+          } else if (answerMatch && currentQ) {
+            currentQ.answer = line.replace(/^\*\s*/, "");
+          } else if (currentQ) {
+            if (currentQ.answer) currentQ.answer += " " + line;
+            else currentQ.text += " " + line;
+          }
+        });
+        if (currentQ) questions.push(currentQ);
+        return questions;
+      }
+
+      const questions = parseData(rawData);
+      const container = document.getElementById("quiz-container");
+      document.getElementById(
+        "count-display"
+      ).innerText = `Tổng số câu: ${questions.length}`;
+
+      function renderQuestions(list) {
+        container.innerHTML = "";
+        list.forEach((q) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          // Thêm sự kiện click để hiện đáp án
+          card.onclick = function () {
+            toggleAnswer(this);
+          };
+
+          card.innerHTML = `
+        <div class="question-row">
+          <span class="q-id">Câu ${q.id}</span>
+          <span>${q.text}</span>
+        </div>
+        <div class="hint-text">(Chạm để xem đáp án)</div>
+        
+        <div class="answer-container">
+          <div class="answer-content">
+            <b>Trả lời:</b> ${q.answer}
+          </div>
+        </div>
+      `;
+          container.appendChild(card);
+        });
+      }
+
+      function toggleAnswer(cardElement) {
+        const answerContainer = cardElement.querySelector(".answer-container");
+        const hint = cardElement.querySelector(".hint-text");
+
+        if (answerContainer.classList.contains("show")) {
+          answerContainer.classList.remove("show");
+          hint.innerText = "(Chạm để xem đáp án)";
+        } else {
+          answerContainer.classList.add("show");
+          hint.innerText = "(Chạm để ẩn)";
+        }
+      }
+
+      // Chức năng hiện/ẩn tất cả
+      let isAllShown = false;
+      window.toggleAll = function () {
+        const allAnswers = document.querySelectorAll(".answer-container");
+        const allHints = document.querySelectorAll(".hint-text");
+        const btn = document.querySelector(".toggle-all-btn");
+
+        isAllShown = !isAllShown;
+
+        allAnswers.forEach((el) => {
+          if (isAllShown) el.classList.add("show");
+          else el.classList.remove("show");
+        });
+
+        allHints.forEach((el) => {
+          el.innerText = isAllShown ? "(Chạm để ẩn)" : "(Chạm để xem đáp án)";
+        });
+
+        btn.innerText = isAllShown ? "🙈 Ẩn tất cả" : "👁️ Hiện tất cả đáp án";
+      };
+
+      // Tìm kiếm
+      window.filterQuestions = function () {
+        const term = document.getElementById("searchInput").value.toLowerCase();
+        const filtered = questions.filter(
+          (q) =>
+            q.text.toLowerCase().includes(term) ||
+            q.id.toString().includes(term)
+        );
+        renderQuestions(filtered);
+        // Nếu đang tìm kiếm thì tự động mở đáp án luôn cho tiện
+        if (term.length > 0) {
+          document
+            .querySelectorAll(".answer-container")
+            .forEach((el) => el.classList.add("show"));
+        }
+      };
+
+      // Chạy lần đầu
+      renderQuestions(questions);
+    </script>
+  </body>
+</html>
